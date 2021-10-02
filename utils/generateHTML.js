@@ -1,5 +1,6 @@
 const fs = require('fs');
 
+//dynamically creates index.html file in dist folder
 const writeFile = fileContent => {
     return new Promise((resolve, reject) => {
         fs.writeFile('./dist/index.html', fileContent, err => {
@@ -17,6 +18,7 @@ const writeFile = fileContent => {
     });
 };
 
+// copies script.css file over to dist folder
 const copyFile = () => {
     fs.copyFile('./src/style.css', './src/style.css', err => {
         if (err) {
