@@ -1,7 +1,6 @@
 // Here we will create the HTML Template that will pull the function information from the lib folder files
 
 //function that creates cards for properties from object
-
 const generateEmployeeCard = objectArray =>  {
 
   //list of employees
@@ -100,7 +99,9 @@ function generateHTML() {
     </header>
     <main class="container">
       <div class="row">
-          ${generateEmployeeCard}
+          ${generateEmployeeCard(Manager)}
+          ${generateEmployeeCard(Engineer)}
+          ${generateEmployeeCard(Intern)}
       </div>
     </main>
     <footer class="">
