@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const generateHTML = require('./src/html-template');
+const generateHtmlTemplate = require('./src/html-template');
 const {writeFile, copyFile} = require('./utils/generateHTML');
 const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
@@ -128,7 +128,7 @@ const additionalEmployee = () => {
         
         default:
           // take object and apply writeFile
-          writeFile(generateHTML(objectArray));
+          writeFile(generateHtmlTemplate(objectArray));
           copyFile();
           break;
       }
