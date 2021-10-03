@@ -6,8 +6,64 @@ const generateEmployeeCard = objectArray =>  {
 
   //list of employees
   // use filter and map functions to create cards for each employee. use join method to chain cards
-  return ``;
+  return `
+  ${objectArray
+    .filter(({Manager}) => Manager)
+    .map(({name, id, email, officeNumber, role}) => {
+      return `
+      <div class="col-lg-6 mb-4">
+        <div class="card-body">
 
+          <h2 class="card-title">${name}</h2>
+          <h3 class="card-title">${role}</h3>
+          <p>ID: ${id}</p>
+          <p>email: ${email}</P>
+          <p>Office Number: ${officeNumber}</p>
+          
+        </div>
+      </div>
+      `;
+    }) 
+  .join('')}
+
+  ${objectArray
+    .filter(({Engineer}) => Engineer)
+    .map(({name, id, email, github, role}) => {
+      return `
+      <div class="col-lg-6 mb-4">
+        <div class="card-body">
+
+          <h2 class="card-title">${name}</h2>
+          <h3 class="card-title">${role}</h3>
+          <p>ID: ${id}</p>
+          <p>Email: ${email}</p>
+          <p>Office Number: ${github}</p>
+    
+        </div>
+      </div>
+      `;
+    }) 
+  .join('')}
+
+  ${objectArray
+    .filter(({Intern}) => Intern)
+    .map(({name, id, email, school, role}) => {
+      return `
+      <div class="col-lg-6 mb-4">
+        <div class="card-body">
+
+        <h2 class="card-title">${name}</h2>
+        <h3 class="card-title">${role}</h3>
+        <p>id: ${id}</p>
+        <p>email: ${email}</P>
+        <p>School: ${school}</p>
+
+        </div>
+      </div>
+      `;
+    }) 
+  .join('')}
+  `;
 };
 
 
@@ -29,7 +85,12 @@ function generateHTML() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Portfolio Demo</title>
-    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"crossorigin="anonymous">
+           
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
   </head>
 
@@ -37,8 +98,10 @@ function generateHTML() {
     <header>
     
     </header>
-    <main class="">
-      ${generateEmployeeCard()}
+    <main class="container">
+      <div class="row">
+          ${generateEmployeeCard}
+      </div>
     </main>
     <footer class="">
 
