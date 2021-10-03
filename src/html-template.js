@@ -14,7 +14,11 @@ const generateEmployeeCard = objectArray =>  {
 
 
 //function that returns a string of good html
-module.exports =  generateHTML => {
+//body above the list of employees (header, container opening, body opening)
+//body bbelow list (closing tags and footer)
+
+// start writing styling for css and html classes using bootstrap
+function generateHTML() {
     
   return `
   <!DOCTYPE html>
@@ -44,6 +48,5 @@ module.exports =  generateHTML => {
   `;
 };
 
+module.exports = generateHTML;
 
-//body above the list of employees (header, container opening, body opening)
-//body bbelow list (closing tags and footer)
