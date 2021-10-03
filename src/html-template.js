@@ -19,7 +19,7 @@ const generateEmployeeCard = objectArray =>  {
           <p>ID: ${id}</p>
           <p>email: ${email}</P>
           <p>Office Number: ${officeNumber}</p>
-          
+
         </div>
       </div>
       `;
@@ -37,7 +37,7 @@ const generateEmployeeCard = objectArray =>  {
           <h3 class="card-title">${role}</h3>
           <p>ID: ${id}</p>
           <p>Email: ${email}</p>
-          <p>Office Number: ${github}</p>
+          <a href="https://github.com/${github}" class="btn btn-outline-primary btn-sm">GitHub</a>
     
         </div>
       </div>
