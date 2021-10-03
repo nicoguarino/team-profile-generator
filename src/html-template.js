@@ -16,7 +16,7 @@ const generateEmployeeCard = objectArray =>  {
           <h2 class="card-title">${name}</h2>
           <h3 class="card-title">${role}</h3>
           <p>ID: ${id}</p>
-          <a href="mailto:${email}">Email</a>
+          <a href="mailto:${email}" target="_blank">Email</a>
           <p>Office Number: ${officeNumber}</p>
 
         </div>
@@ -35,8 +35,8 @@ const generateEmployeeCard = objectArray =>  {
           <h2 class="card-title">${name}</h2>
           <h3 class="card-title">${role}</h3>
           <p>ID: ${id}</p>
-          <a href="mailto:${email}">Email</a>
-          <a href="https://github.com/${github}" class="btn btn-outline-primary btn-sm">GitHub</a>
+          <a href="mailto:${email}" target="_blank">Email</a>
+          <a href="https://github.com/${github}" class="btn btn-outline-primary btn-sm" target="_blank">GitHub</a>
     
         </div>
       </div>
@@ -54,7 +54,7 @@ const generateEmployeeCard = objectArray =>  {
         <h2 class="card-title">${name}</h2>
         <h3 class="card-title">${role}</h3>
         <p>id: ${id}</p>
-        <a href="mailto:${email}">Email</a>
+        <a href="mailto:${email} " target="_blank">Email</a>
         <p>School: ${school}</p>
 
         </div>
