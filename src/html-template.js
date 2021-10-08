@@ -6,7 +6,7 @@ const {Intern} = require('../lib/Intern');
 
 //function that creates cards for properties from object
 const generateEmployeeCard = objectArray => {
-
+  console.log(objectArray);
   //list of employees
   // use filter and map functions to create cards for each employee. use join method to chain cards
   return `
@@ -77,8 +77,8 @@ const generateEmployeeCard = objectArray => {
 //body bbelow list (closing tags and footer)
 
 // start writing styling for css and html classes using bootstrap
-function generateHTML() {
-    
+function generateHTML(data) {
+    console.log(data);
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -103,9 +103,9 @@ function generateHTML() {
     </header>
     <main class="container">
       <div class="row">
-          ${generateEmployeeCard(Manager)}
-          ${generateEmployeeCard(Engineer)}
-          ${generateEmployeeCard(Intern)}
+          ${generateEmployeeCard(data)}
+          ${generateEmployeeCard(data)}
+          ${generateEmployeeCard(data)}
       </div>
     </main>
     <footer class="">
