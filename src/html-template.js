@@ -1,7 +1,11 @@
 // Here we will create the HTML Template that will pull the function information from the lib folder files
+const {Manager} = require('../lib/Manager');
+const {Engineer} = require('../lib/Engineer');
+const {Intern} = require('../lib/Intern');
+
 
 //function that creates cards for properties from object
-const generateEmployeeCard = objectArray =>  {
+const generateEmployeeCard = objectArray => {
 
   //list of employees
   // use filter and map functions to create cards for each employee. use join method to chain cards

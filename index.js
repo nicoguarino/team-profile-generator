@@ -104,6 +104,7 @@ const promptQuestions = () => {
     .then( data => {
       // save object to array
       objectArray.push(data);
+      console.log(objectArray);
       additionalEmployee();
     });
 };
@@ -141,6 +142,7 @@ function addEngineer() {
     .then(data => {
       // save object to array
       objectArray.push(data);
+      console.log(objectArray);
       additionalEmployee();
     });
 }
@@ -150,6 +152,7 @@ function addintern() {
   .then(data => {
     // save object to array
     objectArray.push(data);
+    console.log(objectArray);
     additionalEmployee();
   });
 }
