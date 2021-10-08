@@ -103,8 +103,8 @@ const promptQuestions = () => {
   inquirer.prompt(userQuestions.concat(managerQuestions))
     .then( data => {
       // save object to array
-      objectArray.push(data);
-      console.log(objectArray);
+      const manager = new Manager(data.name, data.Id, data.email, data.officeNumber);
+      objectArray.push(manager);
       additionalEmployee();
     });
 };
@@ -129,6 +129,7 @@ const additionalEmployee = () => {
         
         default:
           // take object and apply writeFile
+          console.log(objectArray);
           writeFile(generateHtmlTemplate(objectArray));
           copyFile();
           break;
@@ -141,8 +142,8 @@ function addEngineer() {
   inquirer.prompt(userQuestions.concat(engineerQuestions))
     .then(data => {
       // save object to array
-      objectArray.push(data);
-      console.log(objectArray);
+      const engineer = new Engineer(data.name, data.Id, data.email, data.gitHub);
+      objectArray.push(engineer);
       additionalEmployee();
     });
 }
@@ -151,8 +152,8 @@ function addintern() {
   inquirer.prompt(userQuestions.concat(internQuestions))
   .then(data => {
     // save object to array
-    objectArray.push(data);
-    console.log(objectArray);
+    const intern = new Intern(data.name, data.Id, data.email, data.school);
+    objectArray.push(intern);
     additionalEmployee();
   });
 }

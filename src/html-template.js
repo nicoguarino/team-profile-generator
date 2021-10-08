@@ -1,72 +1,61 @@
 // Here we will create the HTML Template that will pull the function information from the lib folder files
-const {Manager} = require('../lib/Manager');
-const {Engineer} = require('../lib/Engineer');
-const {Intern} = require('../lib/Intern');
 
 
-//function that creates cards for properties from object
+
 const generateEmployeeCard = objectArray => {
-  console.log(objectArray);
+  console.log(`line 9 ${objectArray[0].name}`);
+  objectArray.forEach(employee => {
+    console.log(employee.getRole());
+
+    switch (employee.getRole()) {
+      case 'Manager':
+          return `
+            <div class="col-lg-6 mb-4">
+              <div class="card-body">
+    
+                <h2 class="card-title">${employee.name}</h2>
+                <h3 class="card-title">${employee.getRole()}</h3>
+                <p>ID: ${employee.id}</p>
+                <a href="mailto:${employee.email}" target="_blank">Email</a>
+                <p>Office Number: ${employee.officeNumber}</p>
+    
+              </div>
+            </div>
+          `;
+
+      case 'Engineer':
+        return `
+        <div class="col-lg-6 mb-4">
+          <div class="card-body">
+
+            <h2 class="card-title">${employee.name}</h2>
+            <h3 class="card-title">${employee.getRole()}</h3>
+            <p>ID: ${employee.id}</p>
+            <a href="mailto:${employee.email}" target="_blank">Email</a>
+            <a href="https://github.com/${employee.github}" class="btn btn-outline-primary btn-sm" target="_blank">GitHub</a>
+    
+          </div>
+        </div>
+       `;
+      
+      case 'Intern':
+        return `
+        <div class="col-lg-6 mb-4">
+         <div class="card-body">
+  
+            <h2 class="card-title">${employee.name}</h2>
+            <h3 class="card-title">${getRole()}</h3>
+            <p>id: ${employee.id}</p>
+            <a href="mailto:${employee.email} " target="_blank">Email</a>
+            <p>School: ${employee.school}</p>
+  
+          </div>
+        </div>
+        `; 
+    }
+  });
   //list of employees
   // use filter and map functions to create cards for each employee. use join method to chain cards
-  return `
-  ${objectArray
-    .filter(({Manager}) => Manager)
-    .map(({name, id, email, officeNumber, role}) => {
-      return `
-      <div class="col-lg-6 mb-4">
-        <div class="card-body">
-
-          <h2 class="card-title">${name}</h2>
-          <h3 class="card-title">${role}</h3>
-          <p>ID: ${id}</p>
-          <a href="mailto:${email}" target="_blank">Email</a>
-          <p>Office Number: ${officeNumber}</p>
-
-        </div>
-      </div>
-      `;
-    }) 
-  .join('')}
-
-  ${objectArray
-    .filter(({Engineer}) => Engineer)
-    .map(({name, id, email, github, role}) => {
-      return `
-      <div class="col-lg-6 mb-4">
-        <div class="card-body">
-
-          <h2 class="card-title">${name}</h2>
-          <h3 class="card-title">${role}</h3>
-          <p>ID: ${id}</p>
-          <a href="mailto:${email}" target="_blank">Email</a>
-          <a href="https://github.com/${github}" class="btn btn-outline-primary btn-sm" target="_blank">GitHub</a>
-    
-        </div>
-      </div>
-      `;
-    }) 
-  .join('')}
-
-  ${objectArray
-    .filter(({Intern}) => Intern)
-    .map(({name, id, email, school, role}) => {
-      return `
-      <div class="col-lg-6 mb-4">
-        <div class="card-body">
-
-        <h2 class="card-title">${name}</h2>
-        <h3 class="card-title">${role}</h3>
-        <p>id: ${id}</p>
-        <a href="mailto:${email} " target="_blank">Email</a>
-        <p>School: ${school}</p>
-
-        </div>
-      </div>
-      `;
-    }) 
-  .join('')}
-  `;
 };
 
 
@@ -78,7 +67,7 @@ const generateEmployeeCard = objectArray => {
 
 // start writing styling for css and html classes using bootstrap
 function generateHTML(data) {
-    console.log(data);
+    console.log(`line 81 ${data}`);
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -103,8 +92,6 @@ function generateHTML(data) {
     </header>
     <main class="container">
       <div class="row">
-          ${generateEmployeeCard(data)}
-          ${generateEmployeeCard(data)}
           ${generateEmployeeCard(data)}
       </div>
     </main>
