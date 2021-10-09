@@ -6,8 +6,10 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
-const objectArray = [];
+//assigns the object to each array based on what type of employee is selected
+const choices = {manager: [], engineer: [], intern: []};
 
+//general questions
 const userQuestions = [
   {
       // employee name
@@ -53,6 +55,8 @@ const userQuestions = [
       }
   }
 ]
+
+//manager specific questions
 const managerQuestions = {
         // Manager Office Number
         type: 'input',
@@ -68,6 +72,7 @@ const managerQuestions = {
         }
 }
 
+//engineer specific questions
 const engineerQuestions = {
           // Engineer gitHub name
           type: 'input',
@@ -83,6 +88,7 @@ const engineerQuestions = {
           }
 }
 
+//intern specific questions
 const internQuestions = {
           // Intern's School name
           type: 'input',
@@ -104,7 +110,7 @@ const promptQuestions = () => {
     .then( data => {
       // save object to array
       const manager = new Manager(data.name, data.Id, data.email, data.officeNumber);
-      objectArray.push(manager);
+      choices.manager.push(manager);
       additionalEmployee();
     });
 };
@@ -129,31 +135,32 @@ const additionalEmployee = () => {
         
         default:
           // take object and apply writeFile
-          console.log(objectArray);
-          writeFile(generateHtmlTemplate(objectArray));
+          console.log(choices);
+          writeFile(generateHtmlTemplate(choices));
           copyFile();
           break;
       }
     });
 };
 
-// create functions to call engineer and intern prompt
+// appends engineer questions to prompt questions and then pushes it into choices.engineer array
 function addEngineer() {
   inquirer.prompt(userQuestions.concat(engineerQuestions))
     .then(data => {
       // save object to array
       const engineer = new Engineer(data.name, data.Id, data.email, data.gitHub);
-      objectArray.push(engineer);
+      choices.engineer.push(engineer);
       additionalEmployee();
     });
 }
 
+// appends intern questions to prompt questions and then pushes it into choices.intern array
 function addintern() {
   inquirer.prompt(userQuestions.concat(internQuestions))
   .then(data => {
     // save object to array
     const intern = new Intern(data.name, data.Id, data.email, data.school);
-    objectArray.push(intern);
+    choices.intern.push(intern);
     additionalEmployee();
   });
 }
