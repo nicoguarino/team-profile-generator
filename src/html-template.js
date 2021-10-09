@@ -24,7 +24,7 @@ const generateEngineer = (employee) => {
       <h4 class="card-title">${employee.getRole()}</h3>
       <p>ID: ${employee.id}</p>
       <a href="mailto:${employee.email}" target="_blank">Email: ${employee.email}</a></br>
-      <a href="https://github.com/${employee.github}" class="btn btn-outline-primary btn-sm" target="_blank">GitHub</a>
+      <a href="https://github.com/${employee.gitHub}" class="btn btn-outline-primary btn-sm" target="_blank">GitHub</a>
 
     </div>
   </div>
