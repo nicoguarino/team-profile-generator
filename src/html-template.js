@@ -1,13 +1,13 @@
 //generates Manager Card
 const generateManager = (employee) => {
   return `
-  <div class="col-lg-6 mb-4">
+  <div class="employee-card col-lg-3 mb-3">
     <div class="card-body">
 
-      <h2 class="card-title">${employee.name}</h2>
-      <h3 class="card-title">${employee.getRole()}</h3>
+      <h3 class="card-title">${employee.name}</h2>
+      <h4 class="card-title">${employee.getRole()}</h3>
       <p>ID: ${employee.id}</p>
-      <a href="mailto:${employee.email}" target="_blank">Email</a>
+      <a href="mailto:${employee.email}" target="_blank">Email: ${employee.email}</a>
       <p>Office Number: ${employee.officeNumber}</p>
 
     </div>
@@ -17,13 +17,13 @@ const generateManager = (employee) => {
 //generates Engineer Card
 const generateEngineer = (employee) => {
   return `
-  <div class="col-lg-6 mb-4">
+  <div class="employee-card col-lg-3 mb-3">
     <div class="card-body">
 
-      <h2 class="card-title">${employee.name}</h2>
-      <h3 class="card-title">${employee.getRole()}</h3>
+      <h3 class="card-title">${employee.name}</h2>
+      <h4 class="card-title">${employee.getRole()}</h3>
       <p>ID: ${employee.id}</p>
-      <a href="mailto:${employee.email}" target="_blank">Email</a>
+      <a href="mailto:${employee.email}" target="_blank">Email: ${employee.email}</a></br>
       <a href="https://github.com/${employee.github}" class="btn btn-outline-primary btn-sm" target="_blank">GitHub</a>
 
     </div>
@@ -33,18 +33,18 @@ const generateEngineer = (employee) => {
 //generates Intern Card
 const generateIntern = (employee) => {
   return `
-  <div class="col-lg-6 mb-4">
+  <div class="employee-card col-lg-3 mb-3">
    <div class="card-body">
 
-      <h2 class="card-title">${employee.name}</h2>
-      <h3 class="card-title">${employee.getRole()}</h3>
-      <p>id: ${employee.id}</p>
-      <a href="mailto:${employee.email} " target="_blank">Email</a>
+      <h3 class="card-title">${employee.name}</h2>
+      <h4 class="card-title">${employee.getRole()}</h3>
+      <p>ID: ${employee.id}</p>
+      <a href="mailto:${employee.email}" target="_blank">Email: ${employee.email}</a>
       <p>School: ${employee.school}</p>
 
     </div>
   </div>
-  `
+ `
 }
 
 //Maps out content for cards and then returns them to generateHTML function
@@ -55,8 +55,6 @@ const generateEmployeeCard = data => {
   const internContent = data.intern.map(generateIntern).join('');
 
   return managerContent + engineerContent + internContent
-
-
 };
 
 //generates the template for the index.html
@@ -82,7 +80,7 @@ function generateHTML(data) {
 
   <body>
     <header>
-    
+      <h2>My Team</h2>
     </header>
     <main class="container">
       <div class="row">

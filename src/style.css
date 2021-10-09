@@ -1,1 +1,31 @@
-/* styling for index.html file */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  text-align: center;
+  padding: 15px;
+  color: white;
+  background-color: rgb(130, 11, 177);
+}
+
+body {
+  background-color: grey;
+  align-content: center;
+}
+
+.employee-card {
+  background-color: white;
+  border: black solid 2px;
+  margin: 5px;
+}
+
+h3 {
+  color: rgb(196, 148, 235);
+  border-bottom: black solid 2px;
+}
+
+h4 {
+  color: rgb(20, 113, 136);
+}

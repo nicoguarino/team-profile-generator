@@ -117,8 +117,7 @@ const promptQuestions = () => {
 
 // add function to prompt user to select additional employee
 const additionalEmployee = () => {
-  inquirer.prompt(
-    {
+  inquirer.prompt({
       type: 'list',
       name: 'role',
       message: 'Would you like to select another employee: ',
